@@ -3,6 +3,9 @@ const path = require("path");
 
 const mode = process.env.NODE_ENV || "production";
 
+const notionApiToken = process.env.NOTION_API_TOKEN;
+
+
 module.exports = {
   output: {
     filename: `worker.${mode}.js`,
@@ -29,4 +32,9 @@ module.exports = {
   optimization: {
     usedExports: true,
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'NOTION_TOK': JSON.stringify(notionApiToken),
+    })
+  ]  
 };

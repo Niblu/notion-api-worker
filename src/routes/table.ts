@@ -7,6 +7,7 @@ import {
   HandlerRequest,
 } from "../api/types";
 import { createResponse } from "../response";
+import { exit } from "process";
 
 export const getTableData = async (
   collection: CollectionType,

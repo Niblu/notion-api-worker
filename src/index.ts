@@ -38,14 +38,19 @@ router.get("*", async () =>
   )
 );
 
+
 const cache = (caches as any).default;
-const NOTION_API_TOKEN =
+const NOTION_API_TOKEN = 
   typeof NOTION_TOKEN !== "undefined" ? NOTION_TOKEN : undefined;
+
+// const NOTION_API_TOKEN = 'secret_zcflThd1hC9lL4mMWoemwepgUIBaJiHsMeCphq6mNf5';
+// console.log(NOTION_API_TOKEN)
+
 
 const handleRequest = async (fetchEvent: FetchEvent): Promise<Response> => {
   const request = fetchEvent.request;
   const { pathname, searchParams } = new URL(request.url);
-  const notionToken =
+  const notionToken = 
     NOTION_API_TOKEN ||
     (request.headers.get("Authorization") || "").split("Bearer ")[1] ||
     undefined;

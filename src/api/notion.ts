@@ -22,6 +22,10 @@ const loadPageChunkBody = {
   verticalColumns: false,
 };
 
+
+const token = 'secret_zcflThd1hC9lL4mMWoemwepgUIBaJiHsMeCphq6mNf5'
+console.log(token)
+
 const fetchNotionData = async <T extends any>({
   resource,
   body,
@@ -31,7 +35,7 @@ const fetchNotionData = async <T extends any>({
     method: "POST",
     headers: {
       "content-type": "application/json",
-      ...(notionToken && { cookie: `token_v2=${notionToken}` }),
+      ...(token && { cookie: `token_v2=${token}` }),
     },
     body: JSON.stringify(body),
   });
